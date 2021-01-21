@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesTable extends Migration
+class CreateOffersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->increments('id');
-            $table->string('title');
+        Schema::create('offers', function (Blueprint $table) {
+            $table->engine = "InnoDB";  
+            $table->increments('id');   
+            $table->string('headline');
             $table->string('description');
-            $table->string('image');
+            $table->integer('num_candidates');
+            $table->date('date_max');
             $table->unsignedInteger('cicle_id');
-            $table->foreign('cicle_id')->references('id')->on('cicles'); 
+            $table->foreign('cicle_id')->references('id')->on('cicles');    
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('offers');
     }
 }
