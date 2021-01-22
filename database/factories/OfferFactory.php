@@ -8,6 +8,6 @@ $factory->define(App\Offer::class, function (Faker $faker) {
         'description' => $faker->sentence(),
         'cicle_id' => \App\Cicle::all()->random()->id,
         'date_max' => $faker->date(),
-        'num_candidates' => $faker->number_format(),
+        'num_candidates' => $faker->randomDigit(),
     ];
 });
