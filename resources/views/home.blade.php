@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{ route('enviarEmail') }}">Enviar Email</a>
                 </div>
             </div>
         </div>
